@@ -33,4 +33,14 @@ endif
 
 "}}}
 
+hi! link Error DraculaErrorLine
+
+hi! link ALEError DraculaErrorLine
+hi! link ALEWarning DraculaWarnLine
+hi! link ALEInfo DraculaInfoLine
+
+hi! link ALEErrorSign DraculaRed
+hi! link ALEWarningSign DraculaOrange
+hi! link ALEInfoSign DraculaCyan
+
 " vim: fdm=marker ts=2 sts=2 sw=2:

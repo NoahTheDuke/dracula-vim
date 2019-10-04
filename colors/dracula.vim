@@ -1,4 +1,4 @@
-" Dracula Theme: v1.5.0 {{{
+" Dracula Theme: {{{
 "
 " https://github.com/zenorocha/dracula-theme
 "
@@ -276,8 +276,15 @@ hi! link WarningMsg   DraculaOrangeInverse
 " Syntax: {{{
 
 " Required as some plugins will overwrite
-call s:h('MatchParen', s:pink, s:bg, [s:attrs.underline])
+call s:h('MatchParen', s:fg, s:pink, [s:attrs.underline])
 call s:h('Conceal', s:comment, s:bglight)
+
+" Neovim uses SpecialKey for escape characters only. Vim uses it for that, plus whitespace.
+if has('nvim')
+  hi! link SpecialKey DraculaRed
+else
+  hi! link SpecialKey DraculaSubtle
+endif
 
 hi! link Comment DraculaComment
 hi! link Underlined DraculaFgUnderline
@@ -289,14 +296,14 @@ hi! link SpellLocal DraculaWarnLine
 hi! link SpellCap DraculaInfoLine
 hi! link SpellRare DraculaInfoLine
 
-hi! link Constant DraculaRed
+hi! link Constant DraculaPurple
 hi! link String DraculaYellow
-hi! link Character DraculaPurple
+hi! link Character DraculaPink
 hi! link Number DraculaPurple
 hi! link Boolean DraculaPurple
 hi! link Float DraculaPurple
 
-hi! link Identifier DraculaCyanItalic
+hi! link Identifier DraculaFg
 hi! link Function DraculaGreen
 
 hi! link Statement DraculaPink
@@ -312,18 +319,17 @@ hi! link Include DraculaPink
 hi! link Define DraculaPink
 hi! link Macro DraculaOrange
 hi! link PreCondit DraculaPink
-hi! link StorageClass DraculaCyanItalic
-hi! link Structure DraculaOrange
+hi! link StorageClass DraculaPink
+hi! link Structure DraculaPink
 hi! link Typedef DraculaPink
 
-hi! link Type DraculaCyan
+hi! link Type DraculaCyanItalic
 
-hi! link Delimiter Normal
+hi! link Delimiter DraculaFg
 
-hi! link Special DraculaCyan
-hi! link SpecialKey DraculaRed
+hi! link Special DraculaPink
 hi! link SpecialComment DraculaCyanItalic
-hi! link Tag DraculaPink
+hi! link Tag DraculaCyan
 hi! link helpHyperTextJump DraculaLink
 hi! link helpCommand DraculaPurple
 hi! link helpExample DraculaGreen
